@@ -4,6 +4,7 @@ $blue:#00a0ff;
 $bg: #ccc;
 $black:#000000;
 $dark_blue: darken($blue, 5);
+$label_color: #ad807d;
 
 $cnt_width:375px;
 $cnt_height:667px;
@@ -47,4 +48,39 @@ body {
     position: absolute;
     top:50%;
     margin: 0 25px;
+}
+
+form {
+    // background:pink;
+    width: 80%;
+    height: 75%;
+    margin: 40px auto;
+}
+label{
+    display: block;
+    text-transform: uppercase;
+    font-size:10px;
+    font-weight: bold;
+    color:$label_color;
+    margin-bottom:10px;
+}
+
+input{
+    border:none;
+    border-bottom:1px solid rgba(0,0,0,.2);
+    width:100%;
+    margin-bottom:30px;
+    outline:none;
+    font-size:16px;
+    padding-bottom:10px;
+}
+
+.form-footer{
+    background-color: $blue;
+}
+.form-footer label{
+    display:inline;
+}
+.form-footer input{
+    display:inline;
 }

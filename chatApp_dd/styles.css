@@ -1,10 +1,10 @@
-/* line 11, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
+/* line 12, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
 body {
   font-family: Karla, sans-serif;
   background: #ccc;
 }
 
-/* line 16, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
+/* line 17, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
 .container {
   background: linear-gradient(#00a0ff 58%, black 42%);
   width: 375px;
@@ -13,7 +13,7 @@ body {
   position: relative;
 }
 
-/* line 24, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
+/* line 25, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
 .container:after {
   background: url("img/Icon.png") no-repeat center 80%, linear-gradient(to left bottom, #00a0ff 52%, #0090e6 0%, #0090e6 100%);
   display: block;
@@ -22,7 +22,7 @@ body {
   height: 58%;
 }
 
-/* line 32, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
+/* line 33, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
 .chat {
   font-size: 100px;
   color: #fff;
@@ -34,7 +34,7 @@ body {
   top: -20px;
 }
 
-/* line 43, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
+/* line 44, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
 .form-container {
   background: #fff;
   width: 325px;
@@ -42,6 +42,49 @@ body {
   position: absolute;
   top: 50%;
   margin: 0 25px;
+}
+
+/* line 53, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
+form {
+  width: 80%;
+  height: 75%;
+  margin: 40px auto;
+}
+
+/* line 59, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
+label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: bold;
+  color: #ad807d;
+  margin-bottom: 10px;
+}
+
+/* line 68, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
+input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+  margin-bottom: 30px;
+  outline: none;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
+/* line 78, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
+.form-footer {
+  background-color: #00a0ff;
+}
+
+/* line 81, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
+.form-footer label {
+  display: inline;
+}
+
+/* line 84, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
+.form-footer input {
+  display: inline;
 }
 
 /*# sourceMappingURL=../styles.map */
