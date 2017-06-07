@@ -1,0 +1,23 @@
+/* line 11, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
+body {
+  font-family: Karla, sans-serif;
+  background: #ccc;
+}
+
+/* line 16, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
+.container {
+  background: linear-gradient(#00a0ff 58%, black 42%);
+  width: 375px;
+  height: 667px;
+}
+
+/* line 22, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
+.container:after {
+  background: linear-gradient(to left bottom, #00a0ff 52%, #0090e6 0%, #0090e6 100%);
+  display: block;
+  content: '';
+  width: 100%;
+  height: 58%;
+}
+
+/*# sourceMappingURL=../styles.map */

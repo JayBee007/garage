@@ -1,0 +1,28 @@
+$font-stack: Karla, sans-serif;
+
+$blue:#00a0ff;
+$bg: #ccc;
+$black:#000000;
+$dark_blue: darken($blue, 5);
+
+$cnt_width:375px;
+$cnt_height:667px;
+
+body {
+    font-family: $font-stack;
+    background: $bg;
+}
+
+.container {
+    background: linear-gradient($blue 58%, black 42%);     
+    width:$cnt_width;
+    height: $cnt_height;
+}
+
+.container:after {
+   background: linear-gradient(to left bottom,$blue 52%, $dark_blue 0%, $dark_blue 100% );
+   display: block;
+   content: '';
+   width:100%;
+   height:58%;
+}

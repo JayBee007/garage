@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "scss/styles.css",
+	"sources": [
+		"scss/styles.scss"
+	],
+	"sourcesContent": [
+		"$font-stack: Karla, sans-serif;\r\n\r\n$blue:#00a0ff;\r\n$bg: #ccc;\r\n$black:#000000;\r\n$dark_blue: darken($blue, 5);\r\n\r\n$cnt_width:375px;\r\n$cnt_height:667px;\r\n\r\nbody {\r\n    font-family: $font-stack;\r\n    background: $bg;\r\n}\r\n\r\n.container {\r\n    background: linear-gradient($blue 58%, black 42%);     \r\n    width:$cnt_width;\r\n    height: $cnt_height;\r\n}\r\n\r\n.container:after {\r\n   background: linear-gradient(to left bottom,$blue 52%, $dark_blue 0%, $dark_blue 100% );\r\n   display: block;\r\n   content: '';\r\n   width:100%;\r\n   height:58%;\r\n}"
+	],
+	"mappings": ";AAUA,AAAA,IAAI,CAAC;EACD,WAAW,EAXF,KAAK,EAAE,UAAU;EAY1B,UAAU,EATT,IAAI;CAUR;;;AAED,AAAA,UAAU,CAAC;EACP,UAAU,EAAE,uCAAe;EAC3B,KAAK,EAVE,KAAK;EAWZ,MAAM,EAVE,KAAK;CAWhB;;;AAED,AAAU,UAAA,AAAA,MAAM,CAAC;EACd,UAAU,EAAE,sEAAe;EAC3B,OAAO,EAAE,KAAM;EACf,OAAO,EAAE,EAAG;EACZ,KAAK,EAAC,IAAK;EACX,MAAM,EAAC,GAAI;CACb",
+	"names": []
+}
