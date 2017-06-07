@@ -13,7 +13,7 @@ body {
 
 /* line 23, E:/projects/code/fcc/practice/garage/chatApp_dd/scss/styles.scss */
 .container:after {
-  background: linear-gradient(to left bottom, #00a0ff 52%, #0090e6 0%, #0090e6 100%);
+  background: url("img/Icon.png") no-repeat center 80%, linear-gradient(to left bottom, #00a0ff 52%, #0090e6 0%, #0090e6 100%);
   display: block;
   content: '';
   width: 100%;
