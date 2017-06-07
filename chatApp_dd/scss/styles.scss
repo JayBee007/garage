@@ -54,7 +54,9 @@ form {
     // background:pink;
     width: 80%;
     height: 75%;
-    margin: 40px auto;
+    margin: 0 auto;
+    padding:40px 0; 
+    position: relative;
 }
 label{
     display: block;
@@ -73,14 +75,4 @@ input{
     outline:none;
     font-size:16px;
     padding-bottom:10px;
-}
-
-.form-footer{
-    background-color: $blue;
-}
-.form-footer label{
-    display:inline;
-}
-.form-footer input{
-    display:inline;
 }
