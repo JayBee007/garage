@@ -11,13 +11,14 @@ $cnt_height:667px;
 body {
     font-family: $font-stack;
     background: $bg;
-    
 }
 
 .container {
     background: linear-gradient($blue 58%, black 42%);     
     width:$cnt_width;
     height: $cnt_height;
+    margin: 0 auto; 
+    position: relative; 
 }
 
 .container:after {
@@ -34,10 +35,16 @@ body {
   font-weight: bold;
   text-align: left;
   position: absolute;
-  left: -0.5px;
+  left: -10px;
   letter-spacing: -5px;
   top:-20px;
-  
-//   top: 115.5px;
-//   z-index: 43;
+}
+
+.form-container{
+    background:#fff;
+    width:325px;
+    height: 250px;
+    position: absolute;
+    top:50%;
+    margin: 0 25px;
 }
