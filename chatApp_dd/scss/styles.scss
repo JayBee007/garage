@@ -50,13 +50,20 @@ body {
     margin: 0 25px;
 }
 
+.form-group {
+    width:80%; 
+    margin:0 auto;
+    // background: pink;
+}
+
 form {
     // background:pink;
-    width: 80%;
-    height: 75%;
-    margin: 0 auto;
+    // width: 80%;
+    // height: 75%;
+    // margin: 0 auto;
     padding:40px 0; 
     position: relative;
+    letter-spacing: 3px;
 }
 label{
     display: block;
@@ -75,4 +82,29 @@ input{
     outline:none;
     font-size:16px;
     padding-bottom:10px;
+}
+
+.form-footer{
+    background-color: $blue;
+    height:50px;
+    padding: 10px 40px;
+    font-size:13px;
+    color:white;
+    display: flex;
+}
+
+.form-footer i {
+    display:inline-block;
+    line-height: 50px;
+    margin-right: 132px;
+}
+
+.form-footer button{
+    display: inline-block;
+    font-size:13px;
+    font-weight: bold;
+    border:none;
+    background:none;
+    color:white;
+    letter-spacing: 1px;
 }
