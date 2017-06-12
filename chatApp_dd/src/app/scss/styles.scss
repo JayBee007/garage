@@ -23,7 +23,7 @@ body {
 }
 
 .container:after {
-   background: url('img/Icon.png') no-repeat center 80%, linear-gradient(to left bottom,$blue 52%, $dark_blue 0%, $dark_blue 100% );
+   background: url('./img/Icon.png') no-repeat center 80%, linear-gradient(to left bottom,$blue 52%, $dark_blue 0%, $dark_blue 100% );
    display: block;
    content: '';
    width:100%;
