@@ -1,0 +1,5 @@
+const C = {
+    LOAD_DEPARTMENTS_SUCCESS: 'LOAD_DEPARTMENTS_SUCCESS'
+}
+
+export default C
