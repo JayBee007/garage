@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
+import { BrowserRouter } from 'react-router-dom'
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
@@ -14,11 +15,13 @@ store.dispatch(loadDept());
 
 ReactDOM.render(
     <Provider store = {store}>
-        <App />
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </Provider>, document.getElementById('root')
 )
 
-// ReactDOM.render(<App />, document.getElementById('root'));
+
 
 
 

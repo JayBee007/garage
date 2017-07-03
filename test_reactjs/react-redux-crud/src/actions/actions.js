@@ -1,19 +1,33 @@
 import C from './constants'
 import Api from '../api';
 
-export function loadDeptSuccess(depts) {
+function loadDeptartments(depts) {
     return {
-        type: C.LOAD_DEPARTMENTS_SUCCESS,
+        type: C.LOAD_DEPARTMENTS,
         depts
     }
 }
 
+function loadDeptSuccess() {
+    return {
+        type: C.LOAD_DEPARTMENTS_SUCCESS
+    }
+}
+
+function loadDeptError(error) {
+    return {
+        type: C.LOAD_DEPARTMENTS_ERROR,
+        error
+    }
+}
+
+
 export function loadDept () {
     return function(dispatch) {
         return Api.getAllDepartments().then(depts => {
-            dispatch(loadDeptSuccess(depts))
-        }).catch(err => {
-            throw(err)
-        })
+            dispatch(loadDeptSuccess());
+            dispatch(loadDeptartments(depts));
+        }).catch(err => dispatch(loadDeptError("Something went wrong!"))
+        );
     }
 }
