@@ -19,3 +19,8 @@ body{
 .App-title{
     font-size:3.5rem;
 }
+
+[class^="Clock-"]{
+    display: inline;
+    padding:5px;
+}

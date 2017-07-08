@@ -8,11 +8,11 @@ class App extends Component {
         return(
             <div className = "App">
                 <div className = "App-title">Countdown to December 25,2017</div>
-                <div>
-                    <div>14 days</div>
-                    <div>30 hours</div>
-                    <div>15 minutes</div>
-                    <div>20 seconds</div>
+                <div className = "Clock">
+                    <div className = "Clock-days">14 days</div>
+                    <div className = "Clock-hours">30 hours</div>
+                    <div className = "Clock-minutes">15 minutes</div>
+                    <div className = "Clock-seconds">20 seconds</div>
                 </div>
                 <div>
                     <input placeholder = "new date" />
