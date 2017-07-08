@@ -1,0 +1,21 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image:url("https://images.unsplash.com/photo-1496868834840-5f4c98840aaa");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size:10px;
+    font-family: 'Play',sans-serif;
+}
+
+.App{
+    font-size: 2rem;
+    color:white;
+    text-shadow: 2px 5px 10px black;
+}
+
+.App-title{
+    font-size:3.5rem;
+}
