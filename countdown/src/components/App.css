@@ -24,3 +24,45 @@ body{
     display: inline;
     padding:5px;
 }
+
+.input-date {
+    text-align: center;
+    margin-top:10px;
+}
+
+input:focus{
+    border-bottom:1px solid yellow;
+}
+
+input {
+    display: inline-block;
+    margin-right:15px;
+    background: transparent;
+    border:none;
+    border-bottom: 1px solid white;
+    padding:10px 10px;
+    outline: none;
+    color:white;
+    font-size:1.5rem;
+    line-height: 1.5rem;
+    text-shadow: 1px 1px 1px black;
+}
+
+button {
+    background: transparent;
+    border:2px solid white;
+    padding:10px;
+    border-radius:5px;
+    color:white;
+    font-size:1.5rem;
+    line-height: 1.5rem;
+    text-shadow: 1px 1px 1px black;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.1s ease;
+}
+
+button:active{
+    border: 2px solid yellow;
+    color:yellow;
+}

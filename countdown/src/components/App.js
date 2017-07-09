@@ -14,7 +14,7 @@ class App extends Component {
                     <div className = "Clock-minutes">15 minutes</div>
                     <div className = "Clock-seconds">20 seconds</div>
                 </div>
-                <div>
+                <div className = "input-date">
                     <input placeholder = "new date" />
                     <button>Submit</button>
                 </div>
