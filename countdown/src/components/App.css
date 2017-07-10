@@ -30,10 +30,6 @@ body{
     margin-top:10px;
 }
 
-input:focus{
-    border-bottom:1px solid yellow;
-}
-
 input {
     display: inline-block;
     margin-right:15px;
@@ -45,7 +41,7 @@ input {
     color:white;
     font-size:1.5rem;
     line-height: 1.5rem;
-    text-shadow: 1px 1px 1px black;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.2);
 }
 
 button {
@@ -65,4 +61,10 @@ button {
 button:active{
     border: 2px solid yellow;
     color:yellow;
+}
+
+.DayPicker {
+    font-size: 1.0rem;
+    text-shadow: none;
+    color:black;
 }

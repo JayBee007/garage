@@ -1,5 +1,10 @@
 import React,{Component} from 'react';
+// import moment from 'moment';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
 
+import 'react-day-picker/lib/style.css';
+
+import Clock from './Clock';
 import './App.css';
 
 
@@ -14,30 +19,31 @@ class App extends Component {
 
     changeDeadLine() {
         this.setState({
-            deadLine: this.state.newDeadLine,
-            newDeadLine:''
+            deadLine: this.state.newDeadLine.format('Do MMMM YYYY'),
+            newDeadLine: '',
         });
     }
 
-    handleOnChange(e){
-        this.setState({
-            newDeadLine: e.target.value
-        });
-    }
+    handleDayChange = newDeadLine => {
+        this.setState({ newDeadLine });
+    };
 
 
     render() {
+        
+        const value = this.state.newDeadLine ? this.state.newDeadLine.format('Do MMMM YYYY'): '';
+      
         return(
             <div className = "App">
                 <div className = "App-title">Countdown to {this.state.deadLine}</div>
-                <div className = "Clock">
-                    <div className = "Clock-days">14 days</div>
-                    <div className = "Clock-hours">30 hours</div>
-                    <div className = "Clock-minutes">15 minutes</div>
-                    <div className = "Clock-seconds">20 seconds</div>
-                </div>
+                <Clock deadLine = {this.state.deadLine}/>
                 <div className = "input-date">
-                    <input value = {this.state.newDeadLine} onChange = {e => this.handleOnChange(e)} placeholder = "new date" />
+                    <DayPickerInput
+                        placeholder="Select date"
+                        format="DD/MM/YYYY"
+                        value={value}
+                        onDayChange={this.handleDayChange}
+                    />
                     <button onClick = {() => this.changeDeadLine()}>Submit</button>
                 </div>
             </div>
