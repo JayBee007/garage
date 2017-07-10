@@ -12,7 +12,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            deadLine: moment("25th July, 2017", "Do MMMM YYYY"),
+            deadLine: moment("25th December, 2017", "Do MMMM YYYY"),
             newDeadLine:''
         }
     }
