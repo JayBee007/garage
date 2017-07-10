@@ -19,6 +19,10 @@ class Clock extends Component {
         this.timerID = setInterval(() => this.getTimeUntil(this.props.deadLine),1000);
     }
 
+    componentWillMount() {
+        clearInterval(this.timerID);
+    } 
+
     getTimeUntil(deadLine) {
         const time = deadLine-moment();
         const seconds = Math.floor((time/1000) % 60);
