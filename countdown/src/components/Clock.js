@@ -19,9 +19,14 @@ class Clock extends Component {
         this.timerID = setInterval(() => this.getTimeUntil(this.props.deadLine),1000);
     }
 
-    componentWillMount() {
+    componentWillUnmount() {
         clearInterval(this.timerID);
-    } 
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.getTimeUntil(nextProps.deadLine);
+        // console.log(nextProps.deadLine);
+    }
 
     getTimeUntil(deadLine) {
         const time = deadLine-moment();

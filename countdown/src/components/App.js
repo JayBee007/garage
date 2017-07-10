@@ -28,12 +28,14 @@ class App extends Component {
     }
 
     handleDayChange = newDeadLine => {
-        this.setState({ newDeadLine });
+        const deadLine = moment(newDeadLine).set({'hour':'00','minute':'00','second':'00'});
+        
+        this.setState({ newDeadLine:deadLine });
     }
 
     render() {
         
-        const value = this.state.newDeadLine ? this.state.newDeadLine.format('Do MMMM YYYY'): '';
+        const value = this.state.newDeadLine ? this.state.newDeadLine.format('Do MMMM YYYY','00:00:00'): '';
 
         const dayPickerProps = {
             disabledDays: {
