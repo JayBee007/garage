@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-// import moment from 'moment';
+import moment from 'moment';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 
 import 'react-day-picker/lib/style.css';
@@ -12,14 +12,17 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            deadLine: 'December 25, 2017',
+            deadLine: moment("25th July, 2017", "Do MMMM YYYY"),
             newDeadLine:''
         }
     }
 
     changeDeadLine() {
+        if(!this.state.newDeadLine){
+            return;
+        }
         this.setState({
-            deadLine: this.state.newDeadLine.format('Do MMMM YYYY'),
+            deadLine: this.state.newDeadLine,
             newDeadLine: '',
         });
     }
@@ -35,7 +38,7 @@ class App extends Component {
       
         return(
             <div className = "App">
-                <div className = "App-title">Countdown to {this.state.deadLine}</div>
+                <div className = "App-title">Countdown to {this.state.deadLine.format('Do MMMM YYYY')}</div>
                 <Clock deadLine = {this.state.deadLine}/>
                 <div className = "input-date">
                     <DayPickerInput
