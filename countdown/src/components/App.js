@@ -34,7 +34,14 @@ class App extends Component {
     render() {
         
         const value = this.state.newDeadLine ? this.state.newDeadLine.format('Do MMMM YYYY'): '';
-      
+
+        const dayPickerProps = {
+            disabledDays: {
+                before: new Date(),
+                
+            }
+        }
+
         return(
             <div className = "App">
                 <div className = "App-title">Countdown to {this.state.deadLine.format('Do MMMM YYYY')}</div>
@@ -45,6 +52,7 @@ class App extends Component {
                         format="DD/MM/YYYY"
                         value={value}
                         onDayChange={this.handleDayChange}
+                        dayPickerProps={dayPickerProps}
                     />
                     <button onClick = {() => this.changeDeadLine()}>Submit</button>
                 </div>
