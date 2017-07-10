@@ -33,13 +33,17 @@ class Clock extends Component {
             seconds
         })
     }
+
+    leadZero(num) {
+        return num < 10 ? `0${num}` : num;
+    }
     render() {
         return (
             <div className="Clock">
-                <div className="Clock-days">{this.state.days} days</div>
-                <div className="Clock-hours">{this.state.hours} hours</div>
-                <div className="Clock-minutes">{this.state.minutes} minutes</div>
-                <div className="Clock-seconds">{this.state.seconds} seconds</div>
+                <div className="Clock-days">{this.leadZero(this.state.days)} days</div>
+                <div className="Clock-hours">{this.leadZero(this.state.hours)} hours</div>
+                <div className="Clock-minutes">{this.leadZero(this.state.minutes)} minutes</div>
+                <div className="Clock-seconds">{this.leadZero(this.state.seconds)} seconds</div>
             </div>
         );
     }

@@ -29,8 +29,7 @@ class App extends Component {
 
     handleDayChange = newDeadLine => {
         this.setState({ newDeadLine });
-    };
-
+    }
 
     render() {
         
