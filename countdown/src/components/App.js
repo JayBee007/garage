@@ -31,6 +31,7 @@ class App extends Component {
         const deadLine = moment(newDeadLine).set({'hour':'00','minute':'00','second':'00'});
         
         this.setState({ newDeadLine:deadLine });
+        
     }
 
     render() {
