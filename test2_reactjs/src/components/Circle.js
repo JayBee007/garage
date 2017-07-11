@@ -31,9 +31,6 @@ class Circle extends Component {
         this.setState({
             opacity:nextProps.opacity
         })
-
-        this.handleInterval();
-
     }
     render() {
         return (
