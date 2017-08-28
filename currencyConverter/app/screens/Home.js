@@ -31,7 +31,7 @@ class Home extends React.Component {
       <Container behavior="padding">
         <StatusBar translucent={false} barStyle="light-content" />
         <Header onPress={this.handleOptionsPress} />
-        <KeyboardAvoidingView>
+        <KeyboardAvoidingView behavior="padding">
           <Logo />
           <InputWithButton
             editable
