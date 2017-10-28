@@ -4,6 +4,7 @@ import './TeslaBattery.css';
 import TeslaNotice from '../components/TeslaNotice/TeslaNotice.js';
 import TeslaCar from '../components/TeslaCar/TeslaCar';
 import TeslaStats from '../components/TeslaStats/TeslaStats';
+import TeslaCounter from '../components/TeslaCounter/TeslaCounter';
 
 import { getModelData } from '../services/BatteryService';
 
@@ -20,6 +21,61 @@ class TeslaBattery extends Component {
         climate: true,
         wheels: 19
       }
+    }
+
+  }
+
+  updateCounterState = (title, newValue) => {
+    const config = { ...this.state.config};
+    title === 'Speed' ? config['speed'] = newValue : config['temperature'] = newValue;
+
+    this.setState({ config });
+  }
+
+  increment = (e, title) => {
+    e.preventDefault();
+    let currentValue, maxValue, step;
+
+    const { speed, temperature } = this.props.counterDefaultVal;
+
+    if (title === 'Speed') {
+      currentValue = this.state.config.speed;
+      maxValue = speed.max;
+      step = speed.step;
+    }else {
+      currentValue = this.state.config.temperature;
+      maxValue = temperature.max;
+      step = temperature.step;
+    }
+
+
+    if (currentValue < maxValue) {
+      const newValue = currentValue + step;
+      this.updateCounterState(title, newValue);
+    }
+
+  }
+
+  decrement = (e, title) => {
+    e.preventDefault();
+    let currentValue, maxValue, step;
+
+    const { speed, temperature } = this.props.counterDefaultVal;
+
+    if (title === 'Speed') {
+      currentValue = this.state.config.speed;
+      maxValue = speed.min;
+      step = speed.step;
+    }else {
+      currentValue = this.state.config.temperature;
+      maxValue = temperature.min;
+      step = temperature.step;
+    }
+
+
+    if (currentValue > maxValue) {
+      const newValue = currentValue - step;
+      this.updateCounterState(title, newValue);
     }
 
   }
@@ -58,6 +114,22 @@ class TeslaBattery extends Component {
         <h1>Range Per Charge</h1>
         <TeslaCar wheelsize={config.wheels} />
         <TeslaStats carstats={carstats} />
+        <div className="tesla-controls cf">
+          <TeslaCounter
+            currentValue = {this.state.config.speed}
+            initValue = {this.props.counterDefaultVal.speed}
+            increment = {this.increment}
+            decrement = {this.decrement}
+          />
+          <div className="tesla-climate-container cf">
+            <TeslaCounter
+            currentValue = {this.state.config.temperature}
+            initValue = {this.props.counterDefaultVal.temperature}
+            increment = {this.increment}
+            decrement = {this.decrement}
+            />
+          </div>
+        </div>
         <TeslaNotice />
       </form>
     )
