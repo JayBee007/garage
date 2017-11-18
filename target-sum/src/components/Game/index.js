@@ -26,11 +26,26 @@ class Game extends React.Component {
 
   target = _.sampleSize(this.challengeNumbers, this.props.challengeSize - 2).reduce ((acc, curr) => acc + curr, 0);
 
+  startGame = () => {
+    this.setState({ gameStatus: 'playing'}, () => {
+      this.intervalId = setInterval(() => {
+        this.setState((prevState) => {
+          const newRemainingSeconds = prevState.remainingSeconds - 1;
+          if (newRemainingSeconds === 0 ) {
+            clearInterval(this.intervalId);
+            return { gameStatus: 'lost', remainingSeconds: 0};
+          }
+          return { remainingSeconds: newRemainingSeconds };
+        });
+      }, 1000);
+    });
+  };
+
   render() {
     return (
       <div className="game">
         <div className="target"
-              style={{backgroundColor: Game.bgColors[gameStatus]}}>
+              style={{backgroundColor: Game.bgColors[this.state.gameStatus]}}>
           {this.state.gameStatus === 'new' ? '?' : this.target}
         </div>
         <div className="challenge-numbers">
@@ -43,7 +58,7 @@ class Game extends React.Component {
         </div>
         <div className="footer">
           {this.state.gameStatus === 'new' ? (
-            <button>Start`</button>
+            <button>Start</button>
           ) : (
             <div className="timer-value">10</div>
           )}
