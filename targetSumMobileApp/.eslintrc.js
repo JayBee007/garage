@@ -17,7 +17,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'react/prop-types': ['off'],
+    // 'react/prop-types': ['on'],
     indent: ['error', 2, { SwitchCase: 1 }],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
