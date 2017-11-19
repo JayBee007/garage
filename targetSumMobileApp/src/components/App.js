@@ -1,14 +1,21 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 class App extends React.Component {
   render() {
     return (
-      <View>
-        <Text>Target Sum</Text>
+      <View style={styles.container}>
+
       </View>
     );
-  };
+  }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fba429',
+    flex: 1,
+  },
+});
 
 export default App;
