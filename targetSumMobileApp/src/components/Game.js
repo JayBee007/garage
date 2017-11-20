@@ -1,21 +1,54 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, StyleSheet } from 'react-native';
+import shuffle from 'lodash.shuffle';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
 import RandomNumber from './RandomNumber';
 
 class Game extends React.Component {
   static propTypes = {
     randomNumberCount: PropTypes.number.isRequired,
+    initialSeconds: PropTypes.number.isRequired,
+    onPlayAgain: PropTypes.func.isRequired,
   };
 
   state = {
     selectedIds: [],
+    remainingSeconds: this.props.initialSeconds,
+  }
+
+  componentDidMount() {
+    this.intervalId = setInterval(() => {
+      this.setState((prevState) => {
+        return {
+          remainingSeconds: prevState.remainingSeconds - 1
+        };
+      }, () => {
+        if(this.state.remainingSeconds === 0) {
+          clearInterval(this.intervalId);
+        }
+      });
+    },1000);
+  }
+
+  componentWillUpdate(nextprops, nextstate) {
+    if(nextstate.selectedIds !== this.selectedIds || nextprops.remainingSeconds === 0) {
+      this.gameStatus = this.calcGameStatus(nextstate);
+      if(this.gameStatus !== 'PLAYING') {
+        clearInterval(this.intervalId);
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
   }
 
   randomNumbers = Array.from({length: this.props.randomNumberCount}).map(() => 1 + Math.floor(10 * Math.random()));
 
-  target = this.randomNumbers
+  shuffleRandomNumbers = shuffle(this.randomNumbers);
+
+  target = this.shuffleRandomNumbers
     .slice(0, this.props.randomNumberCount - 2)
     .reduce((acc,curr) => {
       return acc+curr;
@@ -31,10 +64,14 @@ class Game extends React.Component {
       }));
     }
 
-    gameStatus = () => {
-      const sum = this.state.selectedIds.reduce((acc,curr) => {
-        return acc + this.randomNumbers[curr];
+    calcGameStatus = (nextstate) => {
+      const sum = nextstate.selectedIds.reduce((acc,curr) => {
+        return acc + this.shuffleRandomNumbers[curr];
       },0);
+
+      if(nextstate.remainingSeconds === 0) {
+        return 'LOST';
+      }
 
       if(sum < this.target) {
         return 'PLAYING';
@@ -50,12 +87,12 @@ class Game extends React.Component {
     }
 
     render() {
-      const gameStatus = this.gameStatus();
+      const gameStatus = this.gameStatus;
       return (
         <View style={styles.container}>
           <Text style={[styles.target, styles[`STATUS_${gameStatus}`]]}>{this.target}</Text>
           <View style={styles.randomNumberContainer}>
-            {this.randomNumbers.map((randomNumber, index) => (
+            {this.shuffleRandomNumbers.map((randomNumber, index) => (
               <RandomNumber
                 key={index}
                 id={index}
@@ -64,7 +101,8 @@ class Game extends React.Component {
                 onPress={this.selectNumber}/>
             ))}
           </View>
-          <Text>{gameStatus}</Text>
+          {gameStatus !== 'PLAYING' && (<Button title='Play Again' onPress={this.props.onPlayAgain} />)}
+          <Text>{this.state.remainingSeconds}</Text>
         </View>
       );
     }
