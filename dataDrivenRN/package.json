@@ -8,6 +8,7 @@
 	},
 	"dependencies": {
 		"axios": "^0.17.1",
+		"lodash.debounce": "^4.0.8",
 		"react": "16.0.0",
 		"react-native": "0.50.3"
 	},

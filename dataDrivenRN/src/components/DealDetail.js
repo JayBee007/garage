@@ -57,7 +57,6 @@ class DealDetail extends React.Component {
 const styles = StyleSheet.create({
   deal: {
     marginHorizontal: 12,
-    marginTop: 50,
   },
   back: {
     marginBottom: 5,

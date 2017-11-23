@@ -19,5 +19,13 @@ export default {
     } catch (error) {
       // console.log(error);
     }
+  },
+  async getDealsSearchResults(searchTerm) {
+    try {
+      const response = await axios.get(`${API_HOST}${API_DEALS}?searchTerm=${searchTerm}`);
+      return response.data;
+    } catch(error) {
+      // console.log(error);
+    }
   }
 };
