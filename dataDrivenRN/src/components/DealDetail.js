@@ -3,19 +3,29 @@ import PropTypes from 'prop-types';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { priceDisplay } from '../utils';
+import API from '../api';
 
 class DealDetail extends React.Component {
+
+  state = {
+    deal: this.props.initialDealData,
+  }
 
   static propTypes = {
     initialDealData: PropTypes.object.isRequired
   }
 
+  async componentDidMount() {
+    const fullDeal = await API.getDealDetails(this.state.deal.key);
+    this.setState({deal: fullDeal});
+  }
+
   handlePress = () => {
-    console.log(this.props.deal.key);
+    // console.log(this.props.deal.key);
   }
 
   render() {
-    const { deal } = this.props;
+    const { deal } = this.state;
     return(
       <TouchableOpacity style={styles.deal} onPress={this.handlePress}>
         <Image style={styles.image} source={{uri: deal.media[0]}} />
