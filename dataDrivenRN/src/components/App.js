@@ -25,6 +25,10 @@ class App extends React.Component {
     this.setState({currentDealId: dealId});
   }
 
+  unSetCurrentDeal = () => {
+    this.setState({ currentDealId: null });
+  }
+
   currentDeal = () => {
     return this.state.deals.find(
       (deal) => deal.key === this.state.currentDealId
@@ -33,7 +37,7 @@ class App extends React.Component {
 
   render() {
     if(this.state.currentDealId) {
-      return <DealDetail initialDealData={this.currentDeal()} />;
+      return <DealDetail onBack={this.unSetCurrentDeal} initialDealData={this.currentDeal()} />;
     }
 
     if(this.state.deals.length > 0 ) {

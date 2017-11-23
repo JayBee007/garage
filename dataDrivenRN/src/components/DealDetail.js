@@ -12,7 +12,8 @@ class DealDetail extends React.Component {
   }
 
   static propTypes = {
-    initialDealData: PropTypes.object.isRequired
+    initialDealData: PropTypes.object.isRequired,
+    onBack: PropTypes.func.isRequired
   }
 
   async componentDidMount() {
@@ -20,14 +21,13 @@ class DealDetail extends React.Component {
     this.setState({deal: fullDeal});
   }
 
-  handlePress = () => {
-    // console.log(this.props.deal.key);
-  }
-
   render() {
     const { deal } = this.state;
     return(
       <View style={styles.deal}>
+        <TouchableOpacity onPress={this.props.onBack}>
+          <Text style={styles.back}>Back</Text>
+        </TouchableOpacity>
         <Image source={{ uri: deal.media[0] }} style={styles.image} />
         <View style={styles.detail}>
           <View>
@@ -58,8 +58,10 @@ const styles = StyleSheet.create({
   deal: {
     marginHorizontal: 12,
     marginTop: 50,
-    borderColor: '#bbb',
-    borderWidth: 1,
+  },
+  back: {
+    marginBottom: 5,
+    color: '#22f'
   },
   image: {
     width: '100%',
@@ -67,6 +69,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#ccc',
   },
   detail: {
+    borderColor: '#bbb',
+    borderWidth: 1,
   },
   title: {
     fontSize: 16,
