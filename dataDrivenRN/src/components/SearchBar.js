@@ -7,10 +7,16 @@ class SearchBar extends React.Component {
 
   static propTypes = {
     searchDeals: PropTypes.func.isRequired,
+    initialSearchTerm: PropTypes.string.isRequired
   };
 
   state = {
-    searchTerm: ''
+    searchTerm: this.props.initialSearchTerm
+  }
+
+  searchDeals = (searchTerm) => {
+    this.props.searchDeals(searchTerm);
+    this.inputElem.blur();
   }
 
   debounceSearchDeals = debounce(this.props.searchDeals, 300);
@@ -24,6 +30,8 @@ class SearchBar extends React.Component {
   render() {
     return(
       <TextInput
+        value={this.state.searchTerm}
+        ref={(inputElem) => this.inputElem = inputElem}
         style={styles.input}
         placeholder="Search All Deals"
         onChangeText={this.handleChange}
