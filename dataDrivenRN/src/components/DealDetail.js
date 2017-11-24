@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView,
+import {
+  ScrollView,
   View,
   Text,
   Image,
