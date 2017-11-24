@@ -17,6 +17,7 @@ class App extends React.Component {
   }
 
   animateTitle = (direction = 1) => {
+
     const width = Dimensions.get('window').width - 155;
     Animated.spring(
       this.titleXPos,
@@ -25,16 +26,20 @@ class App extends React.Component {
         duration: 1000,
         easing: Easing.ease,
       }
-    ).start(() => this.animateTitle(-1 * direction));
+    ).start(({ finished }) => {
+      if(finished) {
+        this.animateTitle(-1 * direction);
+      }
+    });
   }
 
   async componentDidMount() {
     this.animateTitle();
-    // const deals = await API.getInitialDeals();
+    const deals = await API.getInitialDeals();
 
-    // this.setState(() => {
-    //   return { deals };
-    // });
+    this.setState(() => {
+      return { deals };
+    });
   }
 
   searchDeals = async (searchTerm) => {

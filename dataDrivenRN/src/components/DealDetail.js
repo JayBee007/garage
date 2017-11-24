@@ -1,14 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView, View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { ScrollView,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Animated,
+  PanResponder,
+  Dimensions
+} from 'react-native';
 
 import { priceDisplay } from '../utils';
 import API from '../api';
 
 class DealDetail extends React.Component {
 
+  imagePanResponder = PanResponder.create({
+    onStartShouldSetPanResponder: () => true,
+    onPanResponderMove: (evt, gs) => {
+
+    },
+    onPanResponderRelease: (evt, gs) => {
+
+    }
+  });
+
   state = {
     deal: this.props.initialDealData,
+    currentImage: 0,
   }
 
   static propTypes = {
@@ -28,7 +48,10 @@ class DealDetail extends React.Component {
         <TouchableOpacity onPress={this.props.onBack}>
           <Text style={styles.back}>Back</Text>
         </TouchableOpacity>
-        <Image source={{ uri: deal.media[0] }} style={styles.image} />
+        <Image
+          {...this.imagePanResponder.panHandlers}
+          source={{ uri: deal.media[this.state.currentImage] }}
+          style={styles.image} />
         <View style={styles.detail}>
           <View>
             <Text style={styles.title}>{deal.title}</Text>
