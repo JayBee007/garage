@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Animated, Easing, Dimensions } from 'react-native';
 
 import SearchBar from './SearchBar';
 import DealDetail from './DealDetail';
@@ -8,18 +8,33 @@ import API from '../api';
 
 class App extends React.Component {
 
+  titleXPos = new Animated.Value(0);
+
   state = {
     deals: [],
     dealsFromSearch: [],
     currentDealId:''
   }
 
-  async componentDidMount() {
-    const deals = await API.getInitialDeals();
+  animateTitle = (direction = 1) => {
+    const width = Dimensions.get('window').width - 155;
+    Animated.spring(
+      this.titleXPos,
+      {
+        toValue: direction * (width / 2),
+        duration: 1000,
+        easing: Easing.ease,
+      }
+    ).start(() => this.animateTitle(-1 * direction));
+  }
 
-    this.setState(() => {
-      return { deals };
-    });
+  async componentDidMount() {
+    this.animateTitle();
+    // const deals = await API.getInitialDeals();
+
+    // this.setState(() => {
+    //   return { deals };
+    // });
   }
 
   searchDeals = async (searchTerm) => {
@@ -70,9 +85,9 @@ class App extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
-        <Text style={styles.header}>Purpose Driven Market</Text>
-      </View>
+      <Animated.View style={[{left: this.titleXPos}, styles.container]}>
+        <Text style={styles.header}>BookSale</Text>
+      </Animated.View>
     );
   }
 }

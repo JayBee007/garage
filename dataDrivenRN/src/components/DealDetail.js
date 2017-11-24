@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { ScrollView, View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { priceDisplay } from '../utils';
 import API from '../api';
@@ -24,7 +24,7 @@ class DealDetail extends React.Component {
   render() {
     const { deal } = this.state;
     return(
-      <View style={styles.deal}>
+      <ScrollView>
         <TouchableOpacity onPress={this.props.onBack}>
           <Text style={styles.back}>Back</Text>
         </TouchableOpacity>
@@ -49,27 +49,21 @@ class DealDetail extends React.Component {
             <Text>{deal.description}</Text>
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  deal: {
-    marginHorizontal: 12,
-  },
   back: {
     marginBottom: 5,
-    color: '#22f'
+    color: '#22f',
+    marginLeft: 10,
   },
   image: {
     width: '100%',
     height: 150,
     backgroundColor: '#ccc',
-  },
-  detail: {
-    borderColor: '#bbb',
-    borderWidth: 1,
   },
   title: {
     fontSize: 16,
