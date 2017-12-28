@@ -7,10 +7,10 @@ const createUser = (email,password,callback) => {
     password: password,
   })
     .then(function(userRecord) {
-      return callback(null,userRecord);
+      callback(null,userRecord);
     })
     .catch(function(error) {
-      return callback(error, null);
+      callback(error, null);
     });
 }
 
