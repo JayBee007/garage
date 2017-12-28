@@ -1,0 +1,21 @@
+{
+  "name": "firebaseauth",
+  "version": "0.0.1",
+  "description": "Firebase Auth using node.js express server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "start-nodemon": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express",
+    "Nodejs",
+    "Firebase"
+  ],
+  "author": "Javed",
+  "license": "MIT",
+  "dependencies": {
+    "firebase-admin": "^5.6.0"
+  }
+}
