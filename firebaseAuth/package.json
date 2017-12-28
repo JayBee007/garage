@@ -14,5 +14,8 @@
     "Firebase"
   ],
   "author": "Javed",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "firebase-admin": "^5.6.0"
+  }
 }
